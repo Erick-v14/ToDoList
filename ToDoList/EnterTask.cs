@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ToDoList
 {
-    class Program
+    class EnterTask
     {
-        static void Main(string[] args)
+        public static void TaskEntry()
         {
-            MainScreen.Intro();
-    }
+
         }
+    }
 }
