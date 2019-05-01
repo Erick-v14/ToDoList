@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace ToDoList
 {
     class CurrentTasks
-    {       
+    {
+        public static List<string> CompletedTaskList = new List<string>();
         public static void ViewTasks()
         {
             int correct = 0;
@@ -18,14 +19,18 @@ namespace ToDoList
                 Console.WriteLine("M. Mark a task as completed");
                 Console.WriteLine("D. Delete a task\n");
                 Console.WriteLine("--------CURRENT TO-DO LIST---------");
+
+                string[] ToDoList = System.IO.File.ReadAllLines(@"C:\Users\WWStudent\source\repos\ToDoList\ToDoList\ToDoTasks.txt");
+
+                // Display the file contents by using a foreach loop.
                 int i = 1;
-                foreach (string x in Program.TaskList)
+                foreach (string Tasks in ToDoList)
                 {
-                 //   Console.WriteLine();
-                    Console.WriteLine( i++ +". "+ x);
-                   
-                    
+                    // Use a tab to indent each line of the file.
+                    Console.WriteLine(i++ +". " + Tasks);
                 }
+
+
                 var UserSelection = Console.ReadLine().ToUpper();
                 if (UserSelection == "0")
                 {
@@ -33,8 +38,11 @@ namespace ToDoList
                 }
                 else if (UserSelection=="M")
                 {
+                    //TODO: MOVE ITEM FROM CURRENT TASK TO LIST TO COMPLETED
                     Console.WriteLine("Which task have you completed?");
                     var CompletedTask = Console.ReadLine();
+                    CompletedTaskList.Add(CompletedTask);
+                    System.IO.File.WriteAllLines(@"C:\Users\WWStudent\source\repos\ToDoList\ToDoList\CompletedTaskList.txt", CompletedTaskList);
                 }
                 else if (UserSelection=="D")
                 {
