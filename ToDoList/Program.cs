@@ -8,9 +8,10 @@ namespace ToDoList
 {
     class Program
     {
+        public static List<string> TaskList = new List<string>();
         static void Main(string[] args)
         {
             MainScreen.Intro();
-    }
         }
+    }
 }

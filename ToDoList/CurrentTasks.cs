@@ -7,16 +7,20 @@ using System.Threading.Tasks;
 namespace ToDoList
 {
     class CurrentTasks
-    {
+    {       
         public static void ViewTasks()
         {
             int correct = 0;
             do
             {
                 Console.Clear();
-                Console.WriteLine("0. Go back to Main Menu");
+                Console.WriteLine("0. Go to Main Menu");
                 Console.WriteLine("M. Mark a task as completed");
                 Console.WriteLine("D. Delete a task");
+                foreach (string i in Program.TaskList)
+                {
+                    Console.WriteLine(i);
+                }
                 var UserSelection = Console.ReadLine().ToUpper();
                 if (UserSelection == "0")
                 {
