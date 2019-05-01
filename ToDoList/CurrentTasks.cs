@@ -16,13 +16,15 @@ namespace ToDoList
                 Console.Clear();
                 Console.WriteLine("0. Go to Main Menu");
                 Console.WriteLine("M. Mark a task as completed");
-                Console.WriteLine("D. Delete a task");
+                Console.WriteLine("D. Delete a task\n");
+                Console.WriteLine("--------CURRENT TO-DO LIST---------");
                 int i = 1;
                 foreach (string x in Program.TaskList)
                 {
-                    Console.WriteLine(i++ +". "+ x);
+                 //   Console.WriteLine();
+                    Console.WriteLine( i++ +". "+ x);
                    
-
+                    
                 }
                 var UserSelection = Console.ReadLine().ToUpper();
                 if (UserSelection == "0")
