@@ -15,15 +15,27 @@ namespace ToDoList
             {
                 Console.Clear();
                 Console.WriteLine("0. Go back to Main Menu");
-                var UserSelection = Console.ReadLine();
+                Console.WriteLine("M. Mark a task as completed");
+                Console.WriteLine("D. Delete a task");
+                var UserSelection = Console.ReadLine().ToUpper();
                 if (UserSelection == "0")
                 {
                     MainScreen.Intro();
                 }
+                else if (UserSelection=="M")
+                {
+                    Console.WriteLine("Which task have you completed?");
+                    var CompletedTask = Console.ReadLine();
+                }
+                else if (UserSelection=="D")
+                {
+                    Console.WriteLine("Which task do you want to delete?");
+                    var DeleteTask = Console.ReadLine();
+                }
                 else
                 {
                     Console.WriteLine("Invalid Selection");
-                    UserSelection = Console.ReadLine();
+                    UserSelection = Console.ReadLine().ToUpper();
                 }
             } while (correct == 0);
         }
