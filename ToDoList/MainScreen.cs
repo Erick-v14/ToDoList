@@ -15,19 +15,18 @@ namespace ToDoList
             {
                 Console.Clear();
                 Console.WriteLine("-----------TASK MANAGER-------------");
-                Console.WriteLine("\n1.  Enter new task to list");
-                Console.WriteLine("2.  View current task list");
-                Console.WriteLine("3.  View completed task list");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+             //   Console.WriteLine("\n1.  Enter new task to list");
+                Console.WriteLine("1.  View current task list");
+                Console.WriteLine("2.  View completed task list");
+                Console.ResetColor();
                 var UserSelection = Console.ReadLine();
-                if (UserSelection == "1")
-                {
-                    EnterTask.TaskEntry();
-                }
-                else if (UserSelection=="2")
+ 
+                if (UserSelection=="1")
                 {
                     CurrentTasks.ViewTasks();
                 }
-                else if (UserSelection=="3")
+                else if (UserSelection=="2")
                 {
                     CompletedTasks.CompletedList();
                 }

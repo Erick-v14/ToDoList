@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="CompletedTasks.cs" />
     <Compile Include="CurrentTasks.cs" />
-    <Compile Include="EnterTask.cs" />
     <Compile Include="MainScreen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

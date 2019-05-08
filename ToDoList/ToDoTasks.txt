@@ -1,3 +1,2 @@
-go to the store
-buy dog food
-was car
+wash car 
+eat food

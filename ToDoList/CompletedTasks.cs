@@ -11,16 +11,22 @@ namespace ToDoList
         public static void CompletedList()
         {
             string[] CompletedTasks = System.IO.File.ReadAllLines(@"C:\Users\WWStudent\source\repos\ToDoList\ToDoList\CompletedTaskList.txt");
+            foreach (string element in CompletedTasks)
+            {
+                CurrentTasks.CompletedTaskList.Add(element);
+            }
             int correct = 0;
             do
             {
                 Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("0. Main menu");
+                    Console.ResetColor();
                 Console.WriteLine("\n---------COMPLETED TASKS--------");
-                int i = 1;
-                foreach (string item in CompletedTasks)
+             //   int i = 1;
+                for(int i=0; i< CurrentTasks.CompletedTaskList.Count;i++)
                 {
-                    Console.WriteLine(i++ + ". " + item);
+                    Console.WriteLine($"{ i + 1}. "+ CurrentTasks.CompletedTaskList[i]);
                 }
 
                 var userselect = Console.ReadLine();
