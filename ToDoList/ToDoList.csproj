@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompletedTasks.cs" />
     <Compile Include="CurrentTasks.cs" />
     <Compile Include="EnterTask.cs" />
     <Compile Include="MainScreen.cs" />

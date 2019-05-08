@@ -17,6 +17,7 @@ namespace ToDoList
                 Console.WriteLine("-----------TASK MANAGER-------------");
                 Console.WriteLine("\n1.  Enter new task to list");
                 Console.WriteLine("2.  View current task list");
+                Console.WriteLine("3.  View completed task list");
                 var UserSelection = Console.ReadLine();
                 if (UserSelection == "1")
                 {
@@ -25,6 +26,10 @@ namespace ToDoList
                 else if (UserSelection=="2")
                 {
                     CurrentTasks.ViewTasks();
+                }
+                else if (UserSelection=="3")
+                {
+                    CompletedTasks.CompletedList();
                 }
                 else
                 {

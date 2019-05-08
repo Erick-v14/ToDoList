@@ -8,25 +8,30 @@ namespace ToDoList
 {
     class CurrentTasks
     {
+        //my completed tasks <list>
         public static List<string> CompletedTaskList = new List<string>();
         public static void ViewTasks()
         {
             int correct = 0;
             do
             {
+                //menu options
                 Console.Clear();
                 Console.WriteLine("0. Go to Main Menu");
                 Console.WriteLine("M. Mark a task as completed");
                 Console.WriteLine("D. Delete a task\n");
                 Console.WriteLine("--------CURRENT TO-DO LIST---------");
 
-                string[] ToDoList = System.IO.File.ReadAllLines(@"C:\Users\WWStudent\source\repos\ToDoList\ToDoList\ToDoTasks.txt");
 
-                // Display the file contents by using a foreach loop.
+
+               
+                //Load The current task list
+                string[] ToDoList = System.IO.File.ReadAllLines(@"C:\Users\WWStudent\source\repos\ToDoList\ToDoList\ToDoTasks.txt");
+               // Display the file contents by using a foreach loop.
                 int i = 1;
                 foreach (string Tasks in ToDoList)
                 {
-                    // Use a tab to indent each line of the file.
+                    // display current tasks 
                     Console.WriteLine(i++ +". " + Tasks);
                 }
 
@@ -36,6 +41,10 @@ namespace ToDoList
                 {
                     MainScreen.Intro();
                 }
+
+
+
+
                 else if (UserSelection=="M")
                 {
                     //TODO: MOVE ITEM FROM CURRENT TASK TO LIST TO COMPLETED
@@ -44,11 +53,30 @@ namespace ToDoList
                     CompletedTaskList.Add(CompletedTask);
                     System.IO.File.WriteAllLines(@"C:\Users\WWStudent\source\repos\ToDoList\ToDoList\CompletedTaskList.txt", CompletedTaskList);
                 }
+
+
+
+
+
+                //Delete a task from current list
                 else if (UserSelection=="D")
                 {
                     Console.WriteLine("Which task do you want to delete?");
                     var DeleteTask = Console.ReadLine();
+                    if (int.TryParse(Console.ReadLine(), out int selection))
+                    {
+                        if (selection <= Program.TaskList.Count && selection >= 0)
+                        {
+                            Program.TaskList.RemoveAt(selection);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid Input, try again: ");
+                            Console.ReadKey();
+                        }
+                    }
                 }
+            
                 else
                 {
                     Console.WriteLine("Invalid Selection");
